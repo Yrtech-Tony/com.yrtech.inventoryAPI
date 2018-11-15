@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace com.yrtech.SurveyAPI.DTO
+namespace com.yrtech.InventoryAPI.DTO
 {
     [Serializable]
     public class FileResultDto

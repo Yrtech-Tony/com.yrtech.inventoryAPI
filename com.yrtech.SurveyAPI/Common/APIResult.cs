@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace com.yrtech.SurveyAPI.Common
+namespace com.yrtech.InventoryAPI.Common
 {
     public class APIResult
     {

@@ -1,5 +1,6 @@
-﻿using com.yrtech.SurveyAPI.Common;
-using com.yrtech.SurveyAPI.DTO.Account;
+﻿using com.yrtech.InventoryAPI.Common;
+using com.yrtech.InventoryAPI.DTO;
+using com.yrtech.InventoryAPI.DTO.Account;
 using Purchase.DAL;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace com.yrtech.SurveyAPI.Service
+namespace com.yrtech.InventoryAPI.Service
 {
     public class AccountService
     {
@@ -21,16 +22,17 @@ namespace com.yrtech.SurveyAPI.Service
         /// <param name="accountId"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public List<AccountDto> Login(string accountId, string password)
+        public List<ShopDto> LoginForMobile(string accountId, string password)
         {
             SqlParameter[] para = new SqlParameter[] { new SqlParameter("@AccountId", accountId),
                                                        new SqlParameter("@Password",password)};
-            Type t = typeof(AccountDto);
-            string sql = @"SELECT A.TenantId,AccountId,AccountName,ISNULL(UseChk,0) AS UseChk,A.TelNO,A.Email,A.HeadPicUrl
-                            FROM UserInfo A
-                            WHERE AccountId = @AccountId AND[Password] = @Password
-                            AND UseChk = 1";
-            return db.Database.SqlQuery(t, sql, para).Cast<AccountDto>().ToList();
+            Type t = typeof(ShopDto);
+            string sql = @"SELECT D.TenantId,A.UserId,A.ShopCode,A.ShopName,A.ExpirTime
+                            FROM Shop A INNER JOIN Projects B ON A.ProjectId = B.ProjectId
+			                INNER JOIN Brand C ON B.BrandId = C.BrandID
+			                INNER JOIN Tenant D ON C.TenantId = D.TenantId
+                            WHERE UserId = @UserId AND Password = @Password AND A.ExpirTime>getdate()";
+            return db.Database.SqlQuery(t, sql, para).Cast<ShopDto>().ToList();
         }
         /// <summary>
         /// 登录成功后获取登录的信息

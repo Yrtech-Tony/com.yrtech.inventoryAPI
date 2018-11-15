@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="com.yrtech.SurveyAPI.WebApiApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="com.yrtech.InventoryAPI.WebApiApplication" Language="C#" %>

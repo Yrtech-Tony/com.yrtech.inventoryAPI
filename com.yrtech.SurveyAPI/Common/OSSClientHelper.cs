@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace com.yrtech.SurveyAPI.Common
+namespace com.yrtech.InventoryAPI.Common
 {
     public class OSSClientHelper
     {

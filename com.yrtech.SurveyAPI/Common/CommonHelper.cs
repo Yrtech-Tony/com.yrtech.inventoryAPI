@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace com.yrtech.SurveyAPI.Common
+namespace com.yrtech.InventoryAPI.Common
 {
     public class CommonHelper
     {
