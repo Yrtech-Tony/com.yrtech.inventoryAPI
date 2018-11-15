@@ -147,5 +147,19 @@ namespace com.yrtech.InventoryAPI.Service
             }
             return db.Database.SqlQuery(t, sql, para).Cast<Shop>().ToList();
         }
+        public List<CarType> GetCarType(string projectId)
+        {
+            return db.CarType.Where(x => (x.ProjectId == Convert.ToInt32(projectId))).ToList();
+        }
+        public List<Note> GetNote(string projectId,string noteType)
+        {
+            if (string.IsNullOrEmpty(noteType))
+            {
+                return db.Note.Where(x => (x.ProjectId == Convert.ToInt32(projectId))).ToList();
+            }
+            else {
+                return db.Note.Where(x => (x.ProjectId == Convert.ToInt32(projectId)&&x.Type==noteType)).ToList();
+            }
+        }
     }
 }

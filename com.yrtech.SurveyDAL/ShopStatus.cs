@@ -19,7 +19,9 @@ namespace Purchase.DAL
         public Nullable<int> ShopId { get; set; }
         public string StatusCode { get; set; }
         public string StatusName { get; set; }
+        public string PhotoUrl { get; set; }
         public string InUserId { get; set; }
         public Nullable<System.DateTime> InDateTime { get; set; }
+        public string UserName { get; set; }
     }
 }

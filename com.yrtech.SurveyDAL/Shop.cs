@@ -26,6 +26,6 @@ namespace Purchase.DAL
         public string InUserID { get; set; }
         public Nullable<System.DateTime> InDateTime { get; set; }
         public string ModifyUserId { get; set; }
-        public Nullable<bool> UseChk { get; set; }
+        public Nullable<System.DateTime> ModifyDateTime { get; set; }
     }
 }

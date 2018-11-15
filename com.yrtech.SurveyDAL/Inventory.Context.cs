@@ -29,15 +29,16 @@ namespace Purchase.DAL
         public virtual DbSet<AnswerRecheck> AnswerRecheck { get; set; }
         public virtual DbSet<AnswerRecheckSet> AnswerRecheckSet { get; set; }
         public virtual DbSet<Brand> Brand { get; set; }
-        public virtual DbSet<CarType> CarType { get; set; }
         public virtual DbSet<Note> Note { get; set; }
         public virtual DbSet<Program> Program { get; set; }
         public virtual DbSet<Projects> Projects { get; set; }
         public virtual DbSet<RoleType> RoleType { get; set; }
-        public virtual DbSet<Shop> Shop { get; set; }
-        public virtual DbSet<ShopStatus> ShopStatus { get; set; }
         public virtual DbSet<Tenant> Tenant { get; set; }
         public virtual DbSet<UserInfo> UserInfo { get; set; }
         public virtual DbSet<UserInfoBrand> UserInfoBrand { get; set; }
+        public virtual DbSet<Shop> Shop { get; set; }
+        public virtual DbSet<ShopStatus> ShopStatus { get; set; }
+        public virtual DbSet<HiddenCode> HiddenCode { get; set; }
+        public virtual DbSet<CarType> CarType { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="com.yrtech.inventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="com.yrtech.inventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Answer">
           <Key>
             <PropertyRef Name="AnswerId" />
@@ -14,10 +14,10 @@
           <Property Name="ShopId" Type="int" Nullable="false" />
           <Property Name="VinCode" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="VinCode8" Type="nvarchar" MaxLength="10" />
-          <Property Name="ModelName" Type="nvarchar" MaxLength="20" />
+          <Property Name="ModelName" Type="nvarchar" MaxLength="50" />
           <Property Name="SubModelName" Type="nvarchar" MaxLength="50" />
-          <Property Name="StockAge" Type="nvarchar" MaxLength="10" />
-          <Property Name="SaleFlag" Type="varchar" MaxLength="50" />
+          <Property Name="StockAge" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaleFlag" Type="nvarchar" MaxLength="50" />
           <Property Name="VinPhotoName" Type="nvarchar" MaxLength="1000" />
           <Property Name="SaleInvoicePhotoName" Type="nvarchar" MaxLength="1000" />
           <Property Name="CarBackPhotoName" Type="nvarchar" MaxLength="1000" />
@@ -73,9 +73,18 @@
             <PropertyRef Name="CarTypeId" />
           </Key>
           <Property Name="CarTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProjectId" Type="int" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
           <Property Name="CarTypeCode" Type="nvarchar" MaxLength="10" />
           <Property Name="CarTypeName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="HiddenCode">
+          <Key>
+            <PropertyRef Name="CodeType" />
+            <PropertyRef Name="HiddenCode" />
+          </Key>
+          <Property Name="CodeType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HiddenCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HiddenName" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Note">
           <Key>
@@ -139,7 +148,7 @@
           <Property Name="InUserID" Type="nvarchar" MaxLength="50" />
           <Property Name="InDateTime" Type="datetime" />
           <Property Name="ModifyUserId" Type="nvarchar" MaxLength="50" />
-          <Property Name="UseChk" Type="bit" />
+          <Property Name="ModifyDateTime" Type="datetime" />
         </EntityType>
         <EntityType Name="ShopStatus">
           <Key>
@@ -149,7 +158,9 @@
           <Property Name="ProjectId" Type="int" />
           <Property Name="ShopId" Type="int" />
           <Property Name="StatusCode" Type="nvarchar" MaxLength="50" />
-          <Property Name="StatusName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="StatusName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhotoUrl" Type="nvarchar" MaxLength="1000" />
           <Property Name="InUserId" Type="nvarchar" MaxLength="50" />
           <Property Name="InDateTime" Type="datetime" />
         </EntityType>
@@ -205,6 +216,7 @@
           <EntitySet Name="AnswerRecheckSet" EntityType="Self.AnswerRecheckSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CarType" EntityType="Self.CarType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HiddenCode" EntityType="Self.HiddenCode" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Note" EntityType="Self.Note" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
@@ -215,8 +227,7 @@
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfoBrand" EntityType="Self.UserInfoBrand" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="com.yrtech.inventoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -229,10 +240,10 @@
           <Property Name="ShopId" Type="Int32" Nullable="false" />
           <Property Name="VinCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="VinCode8" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="ModelName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ModelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SubModelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StockAge" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="SaleFlag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StockAge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SaleFlag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="VinPhotoName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="SaleInvoicePhotoName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="CarBackPhotoName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
@@ -283,15 +294,6 @@
           <Property Name="ModifyUserId" Type="Int32" />
           <Property Name="ModifyDateTime" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="CarType">
-          <Key>
-            <PropertyRef Name="CarTypeId" />
-          </Key>
-          <Property Name="CarTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectId" Type="Int32" />
-          <Property Name="CarTypeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="CarTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Note">
           <Key>
             <PropertyRef Name="NoteID" />
@@ -337,36 +339,6 @@
           <Property Name="RoleTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoleTypeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RoleTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Shop">
-          <Key>
-            <PropertyRef Name="ShopId" />
-          </Key>
-          <Property Name="ShopId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectId" Type="Int32" />
-          <Property Name="ShopCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ShopName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ExpirTime" Type="DateTime" Precision="3" />
-          <Property Name="InUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="InDateTime" Type="DateTime" Precision="3" />
-          <Property Name="ModifyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UseChk" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="ShopStatus">
-          <Key>
-            <PropertyRef Name="ShopStatusId" />
-          </Key>
-          <Property Name="ShopStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectId" Type="Int32" />
-          <Property Name="ShopId" Type="Int32" />
-          <Property Name="StatusCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StatusName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="InUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="InDateTime" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Tenant">
           <Key>
@@ -419,17 +391,68 @@
           <EntitySet Name="AnswerRecheck" EntityType="Self.AnswerRecheck" />
           <EntitySet Name="AnswerRecheckSet" EntityType="Self.AnswerRecheckSet" />
           <EntitySet Name="Brand" EntityType="Self.Brand" />
-          <EntitySet Name="CarType" EntityType="Self.CarType" />
           <EntitySet Name="Note" EntityType="Self.Note" />
           <EntitySet Name="Program" EntityType="Self.Program" />
           <EntitySet Name="Projects" EntityType="Self.Projects" />
           <EntitySet Name="RoleType" EntityType="Self.RoleType" />
-          <EntitySet Name="Shop" EntityType="Self.Shop" />
-          <EntitySet Name="ShopStatus" EntityType="Self.ShopStatus" />
           <EntitySet Name="Tenant" EntityType="Self.Tenant" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
           <EntitySet Name="UserInfoBrand" EntityType="Self.UserInfoBrand" />
+          <EntitySet Name="Shop" EntityType="com.yrtech.inventoryModel.Shop" />
+          <EntitySet Name="ShopStatus" EntityType="com.yrtech.inventoryModel.ShopStatus" />
+          <EntitySet Name="HiddenCode" EntityType="com.yrtech.inventoryModel.HiddenCode" />
+          <EntitySet Name="CarType" EntityType="com.yrtech.inventoryModel.CarType" />
         </EntityContainer>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="ShopId" />
+          </Key>
+          <Property Name="ShopId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="ShopCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShopName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpirTime" Type="DateTime" Precision="3" />
+          <Property Name="InUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ShopStatus">
+          <Key>
+            <PropertyRef Name="ShopStatusId" />
+          </Key>
+          <Property Name="ShopStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="ShopId" Type="Int32" />
+          <Property Name="StatusCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="InUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HiddenCode">
+          <Key>
+            <PropertyRef Name="CodeType" />
+            <PropertyRef Name="HiddenCode1" />
+          </Key>
+          <Property Name="CodeType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HiddenCode1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HiddenName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CarType">
+          <Key>
+            <PropertyRef Name="CarTypeId" />
+          </Key>
+          <Property Name="CarTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="CarTypeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CarTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -503,16 +526,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CarType">
-            <EntityTypeMapping TypeName="com.yrtech.inventoryModel.CarType">
-              <MappingFragment StoreEntitySet="CarType">
-                <ScalarProperty Name="CarTypeId" ColumnName="CarTypeId" />
-                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-                <ScalarProperty Name="CarTypeCode" ColumnName="CarTypeCode" />
-                <ScalarProperty Name="CarTypeName" ColumnName="CarTypeName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Note">
             <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Note">
               <MappingFragment StoreEntitySet="Note">
@@ -563,38 +576,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Shop">
-            <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Shop">
-              <MappingFragment StoreEntitySet="Shop">
-                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
-                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-                <ScalarProperty Name="ShopCode" ColumnName="ShopCode" />
-                <ScalarProperty Name="ShopName" ColumnName="ShopName" />
-                <ScalarProperty Name="Province" ColumnName="Province" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="ExpirTime" ColumnName="ExpirTime" />
-                <ScalarProperty Name="InUserID" ColumnName="InUserID" />
-                <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
-                <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
-                <ScalarProperty Name="UseChk" ColumnName="UseChk" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ShopStatus">
-            <EntityTypeMapping TypeName="com.yrtech.inventoryModel.ShopStatus">
-              <MappingFragment StoreEntitySet="ShopStatus">
-                <ScalarProperty Name="ShopStatusId" ColumnName="ShopStatusId" />
-                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
-                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
-                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
-                <ScalarProperty Name="InUserId" ColumnName="InUserId" />
-                <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tenant">
             <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Tenant">
               <MappingFragment StoreEntitySet="Tenant">
@@ -641,6 +622,59 @@
                 <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
                 <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
                 <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shop">
+            <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+                <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+                <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+                <ScalarProperty Name="InUserID" ColumnName="InUserID" />
+                <ScalarProperty Name="ExpirTime" ColumnName="ExpirTime" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+                <ScalarProperty Name="ShopCode" ColumnName="ShopCode" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopStatus">
+            <EntityTypeMapping TypeName="com.yrtech.inventoryModel.ShopStatus">
+              <MappingFragment StoreEntitySet="ShopStatus">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+                <ScalarProperty Name="InUserId" ColumnName="InUserId" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ShopStatusId" ColumnName="ShopStatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HiddenCode">
+            <EntityTypeMapping TypeName="com.yrtech.inventoryModel.HiddenCode">
+              <MappingFragment StoreEntitySet="HiddenCode">
+                <ScalarProperty Name="HiddenName" ColumnName="HiddenName" />
+                <ScalarProperty Name="HiddenCode1" ColumnName="HiddenCode" />
+                <ScalarProperty Name="CodeType" ColumnName="CodeType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarType">
+            <EntityTypeMapping TypeName="com.yrtech.inventoryModel.CarType">
+              <MappingFragment StoreEntitySet="CarType">
+                <ScalarProperty Name="CarTypeName" ColumnName="CarTypeName" />
+                <ScalarProperty Name="CarTypeCode" ColumnName="CarTypeCode" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="CarTypeId" ColumnName="CarTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

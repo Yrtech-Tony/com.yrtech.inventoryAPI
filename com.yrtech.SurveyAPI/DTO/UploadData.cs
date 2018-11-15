@@ -12,6 +12,7 @@ namespace com.yrtech.InventoryAPI.DTO
         public string AnswerListJson { get; set; }
         public string AnswerShopInfoListJson { get; set; }
         public string AnswerShopConsultantListJson { get; set; }
+        public string ListJson { get; set; }
         
     }
 }

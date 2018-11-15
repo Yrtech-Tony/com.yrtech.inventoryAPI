@@ -22,6 +22,46 @@ namespace com.yrtech.SurveyAPI.Controllers
         AnswerService answerService = new AnswerService();
         MasterService masterService = new MasterService();
         #region APP端
+        [HttpGet]
+        [Route("Answer/GetShopCheckInfo")]
+        public APIResult GetShopCheckInfo(string projectId, string shopId)
+        {
+            try
+            {
+                List<ShopStatus> shopStatusList = answerService.GetStatus(projectId, shopId, "S1");
+                return new APIResult() { Status = true, Body = CommonHelper.Encode(shopStatusList) };
+            }
+            catch (Exception ex)
+            {
+                return new APIResult() { Status = false, Body = ex.Message.ToString() };
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="uploadData"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("Answer/SaveShopCheckInfo")]
+        public async Task<APIResult> SaveShopCheckInfo([FromBody]UploadData uploadData)
+        {
+            try
+            {
+                List<ShopStatus> statusList = CommonHelper.DecodeString<List<ShopStatus>>(uploadData.ListJson);
+
+                foreach (ShopStatus status in statusList)
+                {
+                    status.StatusCode = "S1";
+                    status.StatusName = "签到";
+                    answerService.SaveShopStatus(status);
+                }
+                return new APIResult() { Status = true, Body = "" };
+            }
+            catch (Exception ex)
+            {
+                return new APIResult() { Status = false, Body = ex.Message.ToString() };
+            }
+        }
         /// <summary>
         /// 清单查询
         /// </summary>
@@ -41,22 +81,24 @@ namespace com.yrtech.SurveyAPI.Controllers
             }
         }
         /// <summary>
-        /// 获取销售顾问信息
+        /// 清单添加或者修改
         /// </summary>
         /// <param name="projectId"></param>
         /// <param name="shopId"></param>
         /// <returns></returns>
-        [Route("Answer/GetShopShopConsultant")]
-        public APIResult GetShopShopConsultant(string projectId, string shopId)
+        [HttpPost]
+        [Route("Answer/SaveShopAnswer")]
+        public async Task<APIResult> SaveShopAnswer([FromBody]UploadData uploadData)
         {
             try
             {
-                List<ShopConsultantDto> shopContantList = answerService.GetShopConsultant(projectId, shopId);
-                foreach (ShopConsultantDto shopContant in shopContantList)
+                List<Answer> answerList = CommonHelper.DecodeString<List<Answer>>(uploadData.ListJson);
+
+                foreach (Answer answer in answerList)
                 {
-                    shopContant.ShopConsultantSubjectLinkList = answerService.GetShopConsultantSubjectLink(projectId, shopContant.ConsultantId.ToString());
+                    answerService.SaveShopAnswer(answer);
                 }
-                return new APIResult() { Status = true, Body = CommonHelper.Encode(shopContantList) };
+                return new APIResult() { Status = true, Body = "" };
             }
             catch (Exception ex)
             {

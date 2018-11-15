@@ -15,7 +15,7 @@ namespace Purchase.DAL
     public partial class CarType
     {
         public int CarTypeId { get; set; }
-        public Nullable<int> ProjectId { get; set; }
+        public int ProjectId { get; set; }
         public string CarTypeCode { get; set; }
         public string CarTypeName { get; set; }
     }
