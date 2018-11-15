@@ -11,7 +11,6 @@ namespace com.yrtech.InventoryAPI.Service
     public class MasterService
     {
         Inventory db = new Inventory();
-      
         /// <summary>
         /// 查询租户信息
         /// </summary>
@@ -148,7 +147,5 @@ namespace com.yrtech.InventoryAPI.Service
             }
             return db.Database.SqlQuery(t, sql, para).Cast<Shop>().ToList();
         }
-
-       
     }
 }
