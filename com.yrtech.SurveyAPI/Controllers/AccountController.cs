@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Web.Http;
 using com.yrtech.SurveyAPI.Common;
 using com.yrtech.SurveyAPI.DTO.Account;
-using Purchase.DAL;
+using com.yrtech.SurveyAPI.Service;
 
 namespace com.yrtech.SurveyAPI.Controllers
 {
     [RoutePrefix("inventory/api")]
     public class AccountController : ApiController
     {
-        //AccountService accountService = new AccountService();
+        AccountService accountService = new AccountService();
         //MasterService masterService = new MasterService();
 
         [HttpGet]
@@ -20,7 +20,7 @@ namespace com.yrtech.SurveyAPI.Controllers
             try
             {
                 List<object> resultList = new List<object>();
-                List<AccountDto> accountlist = new List<AccountDto>(); //accountService.Login(accountId, password);
+                List<AccountDto> accountlist = accountService.Login(accountId, password);
                 if (accountlist != null && accountlist.Count != 0)
                 {
                     AccountDto account = accountlist[0];

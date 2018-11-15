@@ -22,15 +22,5 @@ namespace com.yrtech.SurveyAPI.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://123.57.229.128/benzservernew/service.asmx")]
-        public string com_yrtech_SurveyAPI_localhost_Service {
-            get {
-                return ((string)(this["com_yrtech_SurveyAPI_localhost_Service"]));
-            }
-        }
     }
 }
