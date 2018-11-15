@@ -142,6 +142,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Service\AccountService.cs" />
+    <Compile Include="Service\MasterService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\SurveyAPI.pubxml" />

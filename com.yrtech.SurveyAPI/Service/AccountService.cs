@@ -27,7 +27,8 @@ namespace com.yrtech.InventoryAPI.Service
             SqlParameter[] para = new SqlParameter[] { new SqlParameter("@AccountId", accountId),
                                                        new SqlParameter("@Password",password)};
             Type t = typeof(ShopDto);
-            string sql = @"SELECT D.TenantId,A.UserId,A.ShopCode,A.ShopName,A.ExpirTime
+            string sql = @"SELECT D.TenantId,D.TenantId,D.TenantCode,D.TenantName,C.BrandCode,C.BrandName,B.ProjectCode,B.ProjectName,
+                                    A.UserId,A.ShopCode,A.ShopName,A.ExpirTime
                             FROM Shop A INNER JOIN Projects B ON A.ProjectId = B.ProjectId
 			                INNER JOIN Brand C ON B.BrandId = C.BrandID
 			                INNER JOIN Tenant D ON C.TenantId = D.TenantId
