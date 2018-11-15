@@ -1,0 +1,9 @@
+/com.yrtech.SurveyAPI/obj
+/com.yrtech.SurveyAPI/bin
+/com.yrtech.SurveyDAL/bin
+/com.yrtech.SurveyDAL/obj
+/.vs
+/packages
+/com.yrtech.SurveyAPI/Log
+/com.yrtech.SurveyAPI.v12.suo
+/com.yrtech.SurveyAPI/com.yrtech.SurveyAPI.csproj.user
