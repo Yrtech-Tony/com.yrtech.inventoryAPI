@@ -20,10 +20,15 @@ namespace com.yrtech.InventoryAPI.Controllers
         {
             try
             {
+                List<object> resultList = new List<object>();
                 List<ShopDto> accountlist = accountService.LoginForMobile(accountId, password);
                 if (accountlist != null && accountlist.Count != 0)
                 {
-                    return new APIResult() { Status = true, Body = CommonHelper.Encode(accountlist) };
+                    resultList.Add(accountlist);
+                    string projectId = accountlist[0].ProjectId.ToString();
+                    resultList.Add(masterService.GetCarType(projectId));
+                    resultList.Add(masterService.GetNote(projectId, ""));
+                    return new APIResult() { Status = true, Body = CommonHelper.Encode(resultList) };
                 }
                 else
                 {
