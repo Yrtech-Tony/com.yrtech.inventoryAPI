@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="comyrtechinventoryModelStoreContainer" CdmEntityContainer="Inventory">
+    <EntitySetMapping Name="Answer">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Answer">
+        <MappingFragment StoreEntitySet="Answer">
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+          <ScalarProperty Name="VinCode" ColumnName="VinCode" />
+          <ScalarProperty Name="VinCode8" ColumnName="VinCode8" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="SubModelName" ColumnName="SubModelName" />
+          <ScalarProperty Name="StockAge" ColumnName="StockAge" />
+          <ScalarProperty Name="SaleFlag" ColumnName="SaleFlag" />
+          <ScalarProperty Name="VinPhotoName" ColumnName="VinPhotoName" />
+          <ScalarProperty Name="SaleInvoicePhotoName" ColumnName="SaleInvoicePhotoName" />
+          <ScalarProperty Name="CarBackPhotoName" ColumnName="CarBackPhotoName" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="AddChk" ColumnName="AddChk" />
+          <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+          <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+          <ScalarProperty Name="InUserID" ColumnName="InUserID" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnswerRecheck">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.AnswerRecheck">
+        <MappingFragment StoreEntitySet="AnswerRecheck">
+          <ScalarProperty Name="AnswerRecheckId" ColumnName="AnswerRecheckId" />
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+          <ScalarProperty Name="RecheckUserId" ColumnName="RecheckUserId" />
+          <ScalarProperty Name="RechecResult" ColumnName="RechecResult" />
+          <ScalarProperty Name="RecheckRemark" ColumnName="RecheckRemark" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+          <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+          <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnswerRecheckSet">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.AnswerRecheckSet">
+        <MappingFragment StoreEntitySet="AnswerRecheckSet">
+          <ScalarProperty Name="RecheckSetId" ColumnName="RecheckSetId" />
+          <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+          <ScalarProperty Name="RecheckTypeId" ColumnName="RecheckTypeId" />
+          <ScalarProperty Name="RecheckUserId" ColumnName="RecheckUserId" />
+          <ScalarProperty Name="InUserId" ColumnName="InUserId" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+          <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+          <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brand">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="BrandCode" ColumnName="BrandCode" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="InUserId" ColumnName="InUserId" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+          <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+          <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarType">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.CarType">
+        <MappingFragment StoreEntitySet="CarType">
+          <ScalarProperty Name="CarTypeId" ColumnName="CarTypeId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="CarTypeCode" ColumnName="CarTypeCode" />
+          <ScalarProperty Name="CarTypeName" ColumnName="CarTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HiddenCode">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.HiddenCode">
+        <MappingFragment StoreEntitySet="HiddenCode">
+          <ScalarProperty Name="CodeType" ColumnName="CodeType" />
+          <ScalarProperty Name="HiddenCode1" ColumnName="HiddenCode" />
+          <ScalarProperty Name="HiddenName" ColumnName="HiddenName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Note">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Note">
+        <MappingFragment StoreEntitySet="Note">
+          <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="NoteName" ColumnName="NoteName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="InUserId" ColumnName="InUserId" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+          <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+          <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Program">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Program">
+        <MappingFragment StoreEntitySet="Program">
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="ProgramCode" ColumnName="ProgramCode" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Projects">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+          <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+          <ScalarProperty Name="InUserID" ColumnName="InUserID" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+          <ScalarProperty Name="OrderNO" ColumnName="OrderNO" />
+          <ScalarProperty Name="UseChk" ColumnName="UseChk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleType">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.RoleType">
+        <MappingFragment StoreEntitySet="RoleType">
+          <ScalarProperty Name="RoleTypeID" ColumnName="RoleTypeID" />
+          <ScalarProperty Name="RoleTypeCode" ColumnName="RoleTypeCode" />
+          <ScalarProperty Name="RoleTypeName" ColumnName="RoleTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shop">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Shop">
+        <MappingFragment StoreEntitySet="Shop">
+          <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ShopCode" ColumnName="ShopCode" />
+          <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ExpirTime" ColumnName="ExpirTime" />
+          <ScalarProperty Name="InUserID" ColumnName="InUserID" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+          <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+          <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShopStatus">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.ShopStatus">
+        <MappingFragment StoreEntitySet="ShopStatus">
+          <ScalarProperty Name="ShopStatusId" ColumnName="ShopStatusId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+          <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="InUserId" ColumnName="InUserId" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tenant">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.Tenant">
+        <MappingFragment StoreEntitySet="Tenant">
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="TenantCode" ColumnName="TenantCode" />
+          <ScalarProperty Name="TenantName" ColumnName="TenantName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+          <ScalarProperty Name="InUserId" ColumnName="InUserId" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+          <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+          <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+          <ScalarProperty Name="UseChk" ColumnName="UseChk" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TelNO" ColumnName="TelNO" />
+          <ScalarProperty Name="HeadPicUrl" ColumnName="HeadPicUrl" />
+          <ScalarProperty Name="InUserId" ColumnName="InUserId" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+          <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+          <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfoBrand">
+      <EntityTypeMapping TypeName="com.yrtech.inventoryModel.UserInfoBrand">
+        <MappingFragment StoreEntitySet="UserInfoBrand">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="InUserId" ColumnName="InUserId" />
+          <ScalarProperty Name="InDateTime" ColumnName="InDateTime" />
+          <ScalarProperty Name="ModifyUserId" ColumnName="ModifyUserId" />
+          <ScalarProperty Name="ModifyDateTime" ColumnName="ModifyDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
